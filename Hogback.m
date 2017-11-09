@@ -8,7 +8,9 @@
 %slope, block height, weathering rate, and erosion rate. Parameter space
 %exploration allows use of different weathering rules and block movement
 %rules. Parameters that users need to specify are surrounded by many 
-%comment signs. 
+%comment signs. Model parameters are set to match those presented in JGR
+%paper (2017?). This model differs from that of Glade et al., 2017 in that
+%it allows the boundary condition to move with the feature. 
 
 %R.C. Glade and R.S. Anderson
 
@@ -29,6 +31,7 @@ drop = 3; %elevation drop (between resistant layer and slope) required for block
 blockmove = 2; %elevation difference between block and next cell required for block to move. E.g., if blockmove = 2, then elevation difference must be 2 times the current block height
 cutoff = 0.2; %blocks no longer act as blocks after this block height
 metric = 1; %toggle calculations of metrics in the model (increases run time). 0 = off; 1 = on.  
+channel_on = 1; %=1 allows boundary to move with feature; =0 keeps boundary stationary
 
 %Weathering parameters
 exponential = 1; %=1 for exponential weathering, =0 for humped weathering rule
@@ -164,7 +167,7 @@ meanslope2save = [];
 
 channel = length(zb);
 
-channel_on = 1;
+
 
 
 
